@@ -8,6 +8,4 @@
 Dress.create!(name: "Summer fussion", textile: "silk", features: "Short sleaves with long red collored skirt", designer: "Alex Lee")
 Dress.create!(name: "Evening gown", textile: "cotton", features: "Long blue dress with open back", designer: "Judy Foster")
 
-User.create!(username: "splendidPuppy", password_digest: "Judy")
-
 puts "i am all set"

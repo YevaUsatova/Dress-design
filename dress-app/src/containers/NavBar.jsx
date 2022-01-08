@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 export default function NavBar (){
     
-    const {loggedIn}= useSelector(({usersReducer}) => usersReducer)
+const {loggedIn}= useSelector(({usersReducer}) => usersReducer)
 
     return (
     <nav className="blue">
