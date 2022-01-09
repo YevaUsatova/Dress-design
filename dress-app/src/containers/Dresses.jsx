@@ -16,6 +16,7 @@ export default function Dresses() {
     return (
         <div>
            <h1>Dresses</h1> 
+           
            {close.map(dresses => <AllDresses dresses={dresses}/>)}
         </div>
     )

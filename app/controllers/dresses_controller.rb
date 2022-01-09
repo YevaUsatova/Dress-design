@@ -1,12 +1,12 @@
 class DressesController < ApplicationController
 
-    def index 
-        if session [:user_id]
+    def index
+        # if session [:user_id]
             dress = Dress.all
             render json: dress , status: :ok
-        else
-            render json: {errors: "Must be logged in to view dresses."}, status: :unauthorized
-        end
+        # else
+        #     render json: {errors: "Must be logged in to view dresses."}, status: :unauthorized
+        # end
     end
 
     # def show
