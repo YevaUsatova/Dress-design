@@ -4,18 +4,7 @@ const dressReducer = (state= {dresses: []}, action) => {
             return {
                 ...state,
                dresses: action.dresses
-            }
-        case "ERRORS":
-            return {
-                ...state,
-                errors: action.errors
-            }
-        case "CLEAR_ERRORS":
-            return {
-                ...state,
-                errors: []
-            }
-        
+            }        
         default:
             return state 
     }

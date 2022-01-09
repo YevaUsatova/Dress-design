@@ -12,16 +12,7 @@ const userReducer = (state= {user: {}, loggedIn: false, errors: []}, action={}) 
                 user: {},
                 loggedIn: false
             }
-        case "ERRORS":
-            return {
-                ...state,
-                errors: action.errors
-            }
-        case "CLEAR_ERRORS":
-            return {
-                ...state,
-                errors: []
-            }
+        
         default:
             return state 
     }
