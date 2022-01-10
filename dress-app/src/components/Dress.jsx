@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {useParams} from "react-router-dom"
-import All_Dresses from '../components/All_Dresses'
+import Dresses from '../containers/Dresses'
 
 export default function Dress() {
-    const {id} = useParams()
+  
     const [dress, setDress] = useState({})
 
     useEffect(() => {

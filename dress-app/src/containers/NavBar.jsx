@@ -1,19 +1,38 @@
 import React from "react";
-import GuestLinks from "../components/GuestLinks";
-import UserLinks from "../components/UserLinks";
-import { useSelector } from "react-redux";
- 
+import { NavLink, useNavigate } from "react-router-dom";
 
-export default function NavBar (){
-    
-const {loggedIn}= useSelector(({usersReducer}) => usersReducer)
 
+export default function NavBar ({user, setUser}){
+const navigate =useNavigate()    
     return (
     <nav className="blue">
         <div className="nav-wrapper">
           <a href="/" className="brand-logo">Create your dress</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-              {loggedIn ? <UserLinks/> : <GuestLinks/>}
+          {!!user.id ? 
+            <div>
+                <li><NavLink to='/dresses'>Dresses world</NavLink></li>
+                <li><a href="/delete" onClick={(e) => {
+                    e.preventDefault()
+                    fetch('/logout', {
+                        method: "DELETE",
+                        headers: {
+                            "Accept": "application/json",
+                            "Content-Type": "application/json"
+                        }
+                    }).then(resp => {
+                        setUser({})
+                        navigate("/")
+                    })
+                }}>Logout</a></li>
+            </div>
+            :
+            <div>
+                <li><NavLink to="/signup" >Signup</NavLink></li>
+                <li><NavLink to="/login" >Login</NavLink></li>
+            </div>
+            }
+             <li><NavLink to="/" >Home</NavLink></li>
          </ul>
         </div>
      </nav>        

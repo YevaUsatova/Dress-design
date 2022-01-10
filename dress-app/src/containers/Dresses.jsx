@@ -1,23 +1,21 @@
-import React, {useEffect} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import {fetchDresses} from "../actions/dress"
-import AllDresses from '../components/AllDresses'
+import React, {useEffect, useState} from 'react'
+ import DressCard from '../components/DressCard'
 
-
-export default function Dresses() {
-
-     const dispatch = useDispatch()
-     const {close} = useSelector(({dressReducer}) => dressReducer)
-
-     useEffect(() => {
-         fetchDresses(dispatch)   
-     }, [dispatch])
-
+export default function Dresses({user}) {
+    const [dress, setDress] = useState([]) 
+    useEffect(()=>{
+        fetch ('/dresses')
+        .then (r=> r.json())
+        .then (data => setDress([...data]))
+    }, [])
+   
     return (
-        <div>
-           <h1>Dresses</h1> 
-           
-           {close.map(dresses => <AllDresses dresses={dresses}/>)}
-        </div>
+    <div>
+        
+        {dress.map(dresses => <DressCard dresses={dresses}/>)}
+       
+     </div>
     )
+
+    
 }

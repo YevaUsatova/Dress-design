@@ -1,20 +1,31 @@
 import React, {useState} from "react";
-import { useDispatch } from "react-redux";
-import { login } from "../actions/user";
 import {useNavigate} from "react-router-dom"
 
-export default function Login (){
+export default function Login ({setUser}){
     const [formData, setFormData]= useState({
         username: "",
         password: ""
     })
-    const naviagate = useNavigate()
-    const dispatch = useDispatch()
-
+    let navigate = useNavigate()
+   
     const handleSubmit = async (e) =>{
         e.preventDefault()
-       await login (dispatch, formData)
-       naviagate('/dresses')
+        let params = {
+          ...formData  
+        }
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(params)
+        })
+        .then(resp => resp.json())
+        .then(json => {
+            setUser(json)
+            navigate(`/dresses`)
+        })
     }
 
     const handleChange = (e) =>{

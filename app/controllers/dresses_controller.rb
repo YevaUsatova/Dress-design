@@ -1,24 +1,32 @@
 class DressesController < ApplicationController
 
     def index
-        # if session [:user_id]
-            dress = Dress.all
-            render json: dress , status: :ok
-        # else
-        #     render json: {errors: "Must be logged in to view dresses."}, status: :unauthorized
-        # end
+        dress = Dress.all
+        render json: dress
     end
 
-    # def show
-    #     if session[:user_id]
-    #         dress = Dress.find(params[:id])
-    #         if dress
-    #             render json: dress, status: :ok
+    # def index
+    #     if params [:user_id]
+    #         if logged_in?
+    #          render json: Dress.all 
     #         else
-    #             render json: {errors: ["Dress can't be found."]}
+    #             render json: {errors: "Must be logged in to view dresses."}, status: :unauthorized
     #         end
     #     else
-    #         render json: {errors: "Dress doesnt exist."}, status: :unprocessable_entity
+    #         render json:{errors: "Unauthorized access."}, status: :unauthorized
     #     end
     # end
+
+    def show
+        if session[:user_id]
+            dress = Dress.all
+            if dress
+                render json: dress, status: :ok
+            else
+                render json: {errors: ["Dress can't be found."]}
+            end
+        else
+            render json: {errors: "Dress doesnt exist."}, status: :unprocessable_entity
+        end
+    end
 end
