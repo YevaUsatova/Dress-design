@@ -7,7 +7,7 @@ const navigate =useNavigate()
     return (
     <nav className="blue">
         <div className="nav-wrapper">
-          <a href="/" className="brand-logo">Create your dress</a>
+          <a href="/" className="brand-logo">Dress 101</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
           {!!user.id ? 
             <div>
@@ -25,14 +25,16 @@ const navigate =useNavigate()
                         navigate("/")
                     })
                 }}>Logout</a></li>
+                <li><NavLink to='/dresses/add' >Add Dresses</NavLink></li>
             </div>
             :
             <div>
                 <li><NavLink to="/signup" >Signup</NavLink></li>
-                <li><NavLink to="/login" >Login</NavLink></li>
+                <li ><NavLink to="/login" >Login</NavLink></li>
+                
             </div>
+           
             }
-             <li><NavLink to="/" >Home</NavLink></li>
          </ul>
         </div>
      </nav>        

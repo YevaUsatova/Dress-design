@@ -38,15 +38,15 @@ export default function Login ({setUser}){
 
     }
     return (
-        <div>
+        <div >
            <h2>Login</h2> 
-           <form onSubmit = {handleSubmit}>
+           <form  onSubmit = {handleSubmit}>
                <label htmlFor="username">Username</label>
                <input onChange = {handleChange} type= "text" name= "username" id="username" value= {formData.username}/>
                <label htmlFor="password">Password</label>
                <input onChange = {handleChange} type= "password" name= "password" id="password" value= {formData.password}/>
                <button type= "submit">Login</button>
-           </form>
+           </form >
         </div>
     )
 }

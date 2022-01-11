@@ -36,3 +36,48 @@
     transform: rotate(360deg);
   }
 }
+.home {
+  padding-top: 5%;
+  height: 540px;
+  background-image: url("https://www.brides.com/thmb/0-DUi4zx_W19CLOiq4rSp000ZKk=/400x400/filters:max_bytes(150000):strip_icc()/BRIDES-19-best-places-to-buy-wedding-dresses-online-4783904-recirc-15de83a45802480f937b0c1c99bd029c.jpg");
+  background-size: cover;
+}
+.dress {
+  padding-top: 5%;
+  height: 270px;
+  background-image: url("https://i.etsystatic.com/9313816/r/il/aa4e0d/1158405262/il_1588xN.1158405262_mjg6.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.type {
+  text-align: justify;
+  font-weight: bold;
+  color: #ce293f;
+  
+}
+.type2 {
+  text-align: justify;
+  font-weight: bold;
+  color: #28c1e7;
+  
+}
+
+.type3 {
+  text-align: justify;
+  font-weight: bold;
+  color: #cc1350;
+  
+}
+
+#text {
+  text-align: center;
+  font-weight: bold;
+  color: #f03b1b;
+}
+#text2 {
+  
+  text-align: justify;
+  font-weight: bold;
+  color: #2360d3;
+}

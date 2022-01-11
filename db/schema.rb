@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_042055) do
     t.string "textile"
     t.string "features"
     t.string "designer"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

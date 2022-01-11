@@ -1,19 +1,30 @@
 import React, {useEffect, useState} from 'react'
- import DressCard from '../components/DressCard'
+import DressCard from '../components/DressCard'
 
-export default function Dresses({user}) {
+
+
+export default function Dresses() {
     const [dress, setDress] = useState([]) 
     useEffect(()=>{
-        fetch ('/dresses')
+        fetch (`/dresses`)
         .then (r=> r.json())
         .then (data => setDress([...data]))
     }, [])
+
+    
+  function handleDelete(id){
+    fetch(`/dresses/${id}`, {
+        method: "DELETE",
+    })
+    let dressDelete = dress.filter(dresses => dresses.id !== id)
+    setDress(dressDelete)  
+  }
    
     return (
     <div>
+    
+      {dress.map(dresses => <DressCard key = {dresses.id} dresses={dresses} handleDelete={handleDelete}/>)}
         
-        {dress.map(dresses => <DressCard dresses={dresses}/>)}
-       
      </div>
     )
 

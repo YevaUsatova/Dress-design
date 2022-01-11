@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :dresses
   post "/login", to: "sessions#create" 
   delete "/logout", to: "sessions#destroy"
- 
+  post "/dresses/add", to: "dresses#create"
+  delete "/dresses/id", to:"dresses#destroy"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

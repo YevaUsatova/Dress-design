@@ -1,14 +1,17 @@
 import React from "react";
 
-export default function DressCard ({dresses}){
+export default function DressCard ({dresses, handleDelete}){
     return (
+        <div className="dress">
         <ul>
             <li>
-                <h3>{dresses.name}</h3> 
-                <h3>{dresses.textile}</h3>
-                <p>{dresses.features}</p>
-                <h3>{dresses.designer}</h3>
+                <h3 id="text">{dresses.name}</h3> 
+                <p className="type">Type of material: {dresses.textile}</p>
+                <p className="type2">Short description: {dresses.features}</p>
+                <p className="type3">Author: {dresses.designer}  <button className="blue" onClick={()=>handleDelete(dresses.id)}>Delete</button></p>
+                 
            </li>
         </ul>
+        </div>
     )
 }
