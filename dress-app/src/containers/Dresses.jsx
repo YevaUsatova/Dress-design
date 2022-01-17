@@ -11,7 +11,13 @@ export default function Dresses() {
         .then (data => setDress([...data]))
     }, [])
 
-        
+  function handleUpdate(updatedLike) {
+    setDress((dress) =>
+      dress.map((dresses) => {
+        return dresses.id === updatedLike.id ? updatedLike : dresses;
+      })
+    );
+  }  
   function handleDelete(id){
     fetch(`/dresses/${id}`, {
         method: "DELETE",
@@ -23,7 +29,7 @@ export default function Dresses() {
     return (
     <div>
     
-      {dress.map(dresses => <DressCard key = {dresses.id} dresses={dresses} setDress={setDress} handleDelete={handleDelete}/>)}
+      {dress.map(dresses => <DressCard key = {dresses.id} dresses={dresses} setDress={setDress} handleUpdate = {handleUpdate} handleDelete={handleDelete}/>)}
       
      </div>
     )
