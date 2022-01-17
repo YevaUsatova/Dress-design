@@ -2,16 +2,16 @@ import React, {useEffect, useState} from 'react'
 import DressCard from '../components/DressCard'
 
 
-
 export default function Dresses() {
     const [dress, setDress] = useState([]) 
+  
     useEffect(()=>{
         fetch (`/dresses`)
         .then (r=> r.json())
         .then (data => setDress([...data]))
     }, [])
 
-    
+        
   function handleDelete(id){
     fetch(`/dresses/${id}`, {
         method: "DELETE",
@@ -23,8 +23,8 @@ export default function Dresses() {
     return (
     <div>
     
-      {dress.map(dresses => <DressCard key = {dresses.id} dresses={dresses} handleDelete={handleDelete}/>)}
-        
+      {dress.map(dresses => <DressCard key = {dresses.id} dresses={dresses} setDress={setDress} handleDelete={handleDelete}/>)}
+      
      </div>
     )
 

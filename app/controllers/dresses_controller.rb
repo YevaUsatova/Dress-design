@@ -4,6 +4,7 @@ class DressesController < ApplicationController
         render json: Dress.all
     end
 
+
     def destroy
         dress = Dress.find(params[:id])
         dress.delete
@@ -15,6 +16,8 @@ class DressesController < ApplicationController
         dress = Dress.find_or_create_by(name: params[:name], textile: params[:textile], features: params[:features], designer: params[:designer])
         render json: dress, status: :created
     end
+
+    
 
 
  

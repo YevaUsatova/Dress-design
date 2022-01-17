@@ -29,7 +29,7 @@ export default function Signup ({setUser}){
         .then(r => r.json())
         .then (user => {
             setUser(user)
-            navigate(`/dresses`)
+            navigate("/")
         })
         }
     

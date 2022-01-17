@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/dresses/add", to: "dresses#create"
   delete "/dresses/id", to:"dresses#destroy"
+  get "dresses/id", to:"dresses#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

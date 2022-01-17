@@ -10,9 +10,9 @@ export default function AddDress ({ setDress}){
         features: "",
         designer: ""
     })
-    let history = useNavigate()
+    const navigate = useNavigate()
    
-    const handleSubmit = async (e) =>{
+    const handleSubmit = (e) =>{
         e.preventDefault()
         let params = {
           ...formData  
@@ -27,9 +27,9 @@ export default function AddDress ({ setDress}){
         })
         .then(resp => resp.json())
         .then(json => {
-            setDress([json])
-            history('/dresses')
+            setDress([json])   
         })
+        navigate('/dresses')
     }
 
     const handleChange = (e) =>{
