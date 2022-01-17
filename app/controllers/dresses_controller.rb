@@ -17,22 +17,19 @@ class DressesController < ApplicationController
         render json: dress, status: :created
     end
 
-    def update
+    def increment_like
         dress = Dress.find_by(id: params[:id])
         if dress
-            dress.update(dress_params)
+            dress.update(likes: dress.likes + 1)
             render json: dress
         else
-            render json: {error: "Dress not found"}, status: :not_foubd
+            render json: {error: "Dress not found"}, status: :not_found
         end
     end
 
    private
    def dress_params
-    params.permit(:name, :textile, :features, :designer, :likes)
+    params.permit(:name, :textile, :features, :designer)
    end
     
-
-#    name: params[:name], textile: params[:textile], features: params[:features], designer: params[:designer]
- 
 end

@@ -5,11 +5,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/dresses/add", to: "dresses#create"
   delete "/dresses/id", to:"dresses#destroy"
-  get "dresses/id", to:"dresses#index"
-  patch "dresses/id", to:"dresses#update"
+  get "dresses", to:"dresses#index"
+  patch "dresses/:id/like", to:"dresses#increment_like"
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

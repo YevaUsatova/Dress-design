@@ -18,9 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home user={user}/>}/>
           <Route path="/dresses" element={<Dresses user={user}/>}/>
-          <Route  path="/login" element={<Login setUser={setUser}/>}/>
+          <Route path="/login" element={<Login setUser={setUser}/>}/>
           <Route path="/signup" element={<Signup setUser={setUser}/>}/>
           <Route path="/dresses/add" element={<AddDress/>}/>
+          
           
         </Routes>
       </Router>

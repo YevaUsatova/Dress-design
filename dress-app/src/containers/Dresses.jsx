@@ -11,10 +11,10 @@ export default function Dresses() {
         .then (data => setDress([...data]))
     }, [])
 
-  function handleUpdate(updatedLike) {
+  function handleUpdate(updatedInfo) {
     setDress((dress) =>
       dress.map((dresses) => {
-        return dresses.id === updatedLike.id ? updatedLike : dresses;
+        return dresses.id === updatedInfo.id ? updatedInfo : dresses;
       })
     );
   }  
@@ -25,12 +25,12 @@ export default function Dresses() {
     let dressDelete = dress.filter(dresses => dresses.id !== id)
     setDress(dressDelete)  
   }
-   
+
     return (
     <div>
     
       {dress.map(dresses => <DressCard key = {dresses.id} dresses={dresses} setDress={setDress} handleUpdate = {handleUpdate} handleDelete={handleDelete}/>)}
-      
+
      </div>
     )
 
