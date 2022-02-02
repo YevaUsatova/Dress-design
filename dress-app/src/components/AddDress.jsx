@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom"
  
 
-export default function AddDress ({ setDress}){
+export default function AddDress ({ dress, setDress}){
    
     const [formData, setFormData]= useState({
         name: "",
@@ -27,7 +27,8 @@ export default function AddDress ({ setDress}){
         })
         .then(resp => resp.json())
         .then(json => {
-            setDress([json])   
+            setDress([...dress, json])   
+            
         })
         navigate('/dresses')
     }

@@ -13,7 +13,8 @@ class DressesController < ApplicationController
 
 
     def create
-        dress = Dress.find_or_create_by(dress_params)
+        user = User.find(session[:user_id])
+        dress = user.dresses.find_or_create_by(dress_params)
         render json: dress, status: :created
     end
 
@@ -29,7 +30,7 @@ class DressesController < ApplicationController
 
    private
    def dress_params
-    params.permit(:name, :textile, :features, :designer, :user_id)
+    params.require(:dress).permit(:name, :textile, :features, :designer)
    end
     
 end
