@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export default function DressCard ({dresses, handleDelete, handleUpdate}){
    const {textile, features, designer, name, id, likes} = dresses;
   
@@ -17,6 +18,7 @@ export default function DressCard ({dresses, handleDelete, handleUpdate}){
       .then (handleUpdate)
   }
 
+
     return (
         <div className="dress">
         <ul>
@@ -24,9 +26,7 @@ export default function DressCard ({dresses, handleDelete, handleUpdate}){
                 <h3 id="text">{name}</h3> 
                 <p className="type">Type of material: {textile}  <button className="blue" onClick={()=> handleClick(id)}>Like me {likes}</button></p>
                 <p className="type2">Short description: {features}</p>
-                <p className="type3">Author: {designer}  <button className="blue" onClick={()=>handleDelete(id)}>Delete</button></p> 
-                      
-                         
+                <p className="type3">Author: {designer}  <button className="blue" onClick={()=>handleDelete(id)}>Delete</button></p>                  
            </li>
         </ul>
         </div>

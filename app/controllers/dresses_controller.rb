@@ -3,7 +3,7 @@ class DressesController < ApplicationController
     def index
         render json: Dress.all
     end
-
+    
 
     def destroy
         dress = Dress.find(params[:id])
@@ -29,7 +29,7 @@ class DressesController < ApplicationController
 
    private
    def dress_params
-    params.permit(:name, :textile, :features, :designer)
+    params.permit(:name, :textile, :features, :designer, :user_id)
    end
     
 end

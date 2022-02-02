@@ -30,7 +30,7 @@ export default function Dresses() {
     <div>
     
       {dress.map(dresses => <DressCard key = {dresses.id} dresses={dresses} setDress={setDress} handleUpdate = {handleUpdate} handleDelete={handleDelete}/>)}
-
+      
      </div>
     )
 
